@@ -1,5 +1,6 @@
 package com.sparta.delivery.Models;
 
+import com.sparta.delivery.Dto.FoodDto;
 import com.sparta.delivery.Dto.RestaurantDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,23 +10,22 @@ import javax.persistence.*;
 @NoArgsConstructor // 기본생성자를 만듭니다.
 @Getter
 @Entity
-public class Restaurant {
+public class Food {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long restaurantid;
-
     @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
-    private Long minOrderPrice;
+    private Long Price;
 
     @Column(nullable = false)
-    private Long deliveryFee;
+    private Long restaurantId;
+
+
 
 //    public Restaurant(String name, Long minOrderPrice, Long deliveryFee){
 //        this.name = name;
@@ -33,12 +33,13 @@ public class Restaurant {
 //        this.deliveryFee = deliveryFee;
 //    }
 
-    public Restaurant(RestaurantDto requestDto) {
+    public Food(FoodDto requestDto, Long restaurantId) {
 
         this.name = requestDto.getName();
-        this.minOrderPrice = requestDto.getMinOrderPrice();
-        this.deliveryFee = requestDto.getDeliveryFee();
+        this.Price = requestDto.getPrice();
+        this.restaurantId = restaurantId;
 
     }
+
 
 }

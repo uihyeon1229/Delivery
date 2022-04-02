@@ -37,7 +37,7 @@ class RestaurantIntegrationTest {
 
     @Nested
     @DisplayName("음식점 3개 등록 및 조회")
-    class RegisterRestaurants {
+     class RegisterRestaurants {
         @Test
         @Order(1)
         @DisplayName("음식점1 등록")
